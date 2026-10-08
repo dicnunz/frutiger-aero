@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "aero:block/navigator_top",
+    "side": "aero:block/navigator_side",
+    "bottom": "aero:block/white_panel"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:cyan_dye"
+    },
+    {
+      "item": "minecraft:light_blue_dye"
+    }
+  ],
+  "result": {
+    "id": "aero:aqua_tile",
+    "count": 4
+  }
+}

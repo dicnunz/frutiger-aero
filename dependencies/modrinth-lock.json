@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Iris 1.8.7 for Fabric 1.21.1",
+    "version": "1.8.7+1.21.1-fabric",
+    "file": "iris-fabric-1.8.7+mc1.21.1.jar",
+    "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/A99vfwJc/iris-fabric-1.8.7%2Bmc1.21.1.jar",
+    "sha512": "b4b806f151f5bd46e409e0d27e611a0444a98bbcef72e52163e6f989e90a3097d9dea8ee45fbb7e4f41d517eeaab4a62d18f7502032c3f8d66ff9e4ee5dd18f9"
+  },
+  {
+    "name": "Sodium 0.6.9 for Fabric 1.21.1",
+    "version": "mc1.21.1-0.6.9-fabric",
+    "file": "sodium-fabric-0.6.9+mc1.21.1.jar",
+    "url": "https://cdn.modrinth.com/data/AANobbMI/versions/26nVNc41/sodium-fabric-0.6.9%2Bmc1.21.1.jar",
+    "sha512": "892728b3c26038446b9f573695db9e791fa320994ed34f89be5c766fa2e735b46adb9efa8f6688d5a5b7bb8e9793ff09e72f06fb5ff074137d5b833f1fe27227"
+  }
+]

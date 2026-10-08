@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "aero:block/workshop_top",
+    "side": "aero:block/workshop_side",
+    "bottom": "aero:block/white_panel"
+  }
+}

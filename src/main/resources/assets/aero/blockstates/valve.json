@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "rotation=0,elbow=false,lit=false": {
+      "model": "aero:block/valve_straight",
+      "y": 0
+    },
+    "rotation=0,elbow=false,lit=true": {
+      "model": "aero:block/valve_straight_lit",
+      "y": 0
+    },
+    "rotation=0,elbow=true,lit=false": {
+      "model": "aero:block/valve_elbow",
+      "y": 0
+    },
+    "rotation=0,elbow=true,lit=true": {
+      "model": "aero:block/valve_elbow_lit",
+      "y": 0
+    },
+    "rotation=1,elbow=false,lit=false": {
+      "model": "aero:block/valve_straight",
+      "y": 90
+    },
+    "rotation=1,elbow=false,lit=true": {
+      "model": "aero:block/valve_straight_lit",
+      "y": 90
+    },
+    "rotation=1,elbow=true,lit=false": {
+      "model": "aero:block/valve_elbow",
+      "y": 90
+    },
+    "rotation=1,elbow=true,lit=true": {
+      "model": "aero:block/valve_elbow_lit",
+      "y": 90
+    },
+    "rotation=2,elbow=false,lit=false": {
+      "model": "aero:block/valve_straight",
+      "y": 180
+    },
+    "rotation=2,elbow=false,lit=true": {
+      "model": "aero:block/valve_straight_lit",
+      "y": 180
+    },
+    "rotation=2,elbow=true,lit=false": {
+      "model": "aero:block/valve_elbow",
+      "y": 180
+    },
+    "rotation=2,elbow=true,lit=true": {
+      "model": "aero:block/valve_elbow_lit",
+      "y": 180
+    },
+    "rotation=3,elbow=false,lit=false": {
+      "model": "aero:block/valve_straight",
+      "y": 270
+    },
+    "rotation=3,elbow=false,lit=true": {
+      "model": "aero:block/valve_straight_lit",
+      "y": 270
+    },
+    "rotation=3,elbow=true,lit=false": {
+      "model": "aero:block/valve_elbow",
+      "y": 270
+    },
+    "rotation=3,elbow=true,lit=true": {
+      "model": "aero:block/valve_elbow_lit",
+      "y": 270
+    }
+  }
+}

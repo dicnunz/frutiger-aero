@@ -1,0 +1,15 @@
+{
+  "version": "0.105.0+1.21.1",
+  "file": {
+    "id": "Cy5IwDk9",
+    "hashes": {
+      "sha512": "6e1ffcf7f5af9589c16ccec1f9bb5ef8dede5ebe52ae09d94affa8050603f6ecd71d130a793c2bdb4bd42b2a70905425e55141d39369dfa9840569eef4dace16",
+      "sha1": "09b6399db5f09a79b0ac5b7ecbbba2e3189b190a"
+    },
+    "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/WTaAx4ah/fabric-api-0.105.0%2B1.21.1.jar",
+    "filename": "fabric-api-0.105.0+1.21.1.jar",
+    "primary": true,
+    "size": 2324549,
+    "file_type": null
+  }
+}

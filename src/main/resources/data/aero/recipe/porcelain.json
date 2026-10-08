@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "minecraft:quartz"
+    }
+  ],
+  "result": {
+    "id": "aero:porcelain",
+    "count": 4
+  }
+}

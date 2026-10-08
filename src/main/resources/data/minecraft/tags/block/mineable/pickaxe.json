@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "aero:porcelain",
+    "aero:aqua_tile",
+    "aero:blue_tile",
+    "aero:white_panel",
+    "aero:silver",
+    "aero:glow_panel",
+    "aero:control",
+    "aero:navigator",
+    "aero:workshop",
+    "aero:valve",
+    "aero:specimen"
+  ]
+}

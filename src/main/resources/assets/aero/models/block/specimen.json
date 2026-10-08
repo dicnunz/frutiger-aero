@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "aero:block/specimen_top",
+    "side": "aero:block/specimen_side",
+    "bottom": "aero:block/white_panel"
+  }
+}

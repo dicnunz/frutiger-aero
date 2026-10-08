@@ -1,0 +1,152 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "particle": "aero:block/white_panel",
+    "plate": "aero:block/valve_base",
+    "pipe": "aero:block/valve_pipe_lit",
+    "knob": "aero:block/valve_knob_lit"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        1.5,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#plate"
+        },
+        "east": {
+          "texture": "#plate"
+        },
+        "south": {
+          "texture": "#plate"
+        },
+        "west": {
+          "texture": "#plate"
+        },
+        "up": {
+          "texture": "#plate",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#plate"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        1.5,
+        0
+      ],
+      "to": [
+        10,
+        3,
+        7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#pipe"
+        },
+        "east": {
+          "texture": "#pipe"
+        },
+        "south": {
+          "texture": "#pipe"
+        },
+        "west": {
+          "texture": "#pipe"
+        },
+        "up": {
+          "texture": "#pipe"
+        },
+        "down": {
+          "texture": "#pipe"
+        }
+      }
+    },
+    {
+      "from": [
+        9,
+        1.5,
+        6
+      ],
+      "to": [
+        16,
+        3,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#pipe"
+        },
+        "east": {
+          "texture": "#pipe"
+        },
+        "south": {
+          "texture": "#pipe"
+        },
+        "west": {
+          "texture": "#pipe"
+        },
+        "up": {
+          "texture": "#pipe"
+        },
+        "down": {
+          "texture": "#pipe"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        1.5,
+        6
+      ],
+      "to": [
+        10,
+        4,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#knob"
+        },
+        "east": {
+          "texture": "#knob"
+        },
+        "south": {
+          "texture": "#knob"
+        },
+        "west": {
+          "texture": "#knob"
+        },
+        "up": {
+          "texture": "#knob",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#knob"
+        }
+      }
+    }
+  ]
+}

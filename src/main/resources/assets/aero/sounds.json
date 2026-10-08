@@ -1,0 +1,34 @@
+{
+  "atrium": {
+    "sounds": [
+      {
+        "name": "aero:atrium",
+        "stream": true
+      }
+    ]
+  },
+  "pools": {
+    "sounds": [
+      {
+        "name": "aero:pools",
+        "stream": true
+      }
+    ]
+  },
+  "garden": {
+    "sounds": [
+      {
+        "name": "aero:garden",
+        "stream": true
+      }
+    ]
+  },
+  "chime": {
+    "sounds": [
+      {
+        "name": "aero:chime",
+        "stream": false
+      }
+    ]
+  }
+}

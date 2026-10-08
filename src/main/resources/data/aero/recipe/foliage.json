@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:oak_leaves"
+    },
+    {
+      "item": "minecraft:oak_leaves"
+    },
+    {
+      "item": "minecraft:oak_leaves"
+    },
+    {
+      "item": "minecraft:oak_leaves"
+    },
+    {
+      "item": "minecraft:lime_dye"
+    }
+  ],
+  "result": {
+    "id": "aero:foliage",
+    "count": 4
+  }
+}

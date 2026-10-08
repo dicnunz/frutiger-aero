@@ -1,0 +1,20 @@
+{
+  "block.aero.porcelain": "Porcelain",
+  "block.aero.aqua_tile": "Aqua Tile",
+  "block.aero.blue_tile": "Sapphire Tile",
+  "block.aero.white_panel": "White Panel",
+  "block.aero.lawn": "Lawn",
+  "block.aero.foliage": "Foliage",
+  "block.aero.silver": "Silver",
+  "block.aero.glow_panel": "Light Panel",
+  "block.aero.control": "Control",
+  "block.aero.valve": "Flow Valve",
+  "block.aero.navigator": "Expedition Console",
+  "block.aero.workshop": "Workshop",
+  "block.aero.specimen": "Specimen",
+  "item.aero.field_guide": "Field Guide",
+  "item.aero.return_stone": "Return Stone",
+  "key.aero.notes": "Field notes",
+  "key.aero.return": "Return home",
+  "key.categories.aero": "Frutiger Aero"
+}
