@@ -30,17 +30,36 @@ public final class AeroClient implements ClientModInitializer {
  private SoundInstance ambience;private String lastCommand="";
  private KeyBinding notes,recall;
  private final AeroDirector director=new AeroDirector();
+ private final AeroFramebufferRecorder framebufferRecorder=new AeroFramebufferRecorder();
+ private static AeroClient captureClient;
  public static boolean bool(String key){return view.has(key)&&view.get(key).getAsBoolean();}
  public static int number(String key){return view.has(key)?view.get(key).getAsInt():0;}
  public static void action(String value){if(ClientPlayNetworking.canSend(AeroNetworking.Request.ID)){ClientPlayNetworking.send(new AeroNetworking.Request(value));if(!value.startsWith("material:"))MinecraftClient.getInstance().setScreen(null);}}
+ public static void renderFrame(MinecraftClient mc){if(Boolean.getBoolean("aero.demo")&&captureClient!=null&&captureClient.director.running())captureClient.director.frame(mc);}
+ public static void captureAfterFrame(MinecraftClient mc){if(Boolean.getBoolean("aero.demo")&&captureClient!=null)captureClient.framebufferRecorder.afterFrame(mc);}
+ public static void captureStart(MinecraftClient mc,String name)throws java.io.IOException{if(Boolean.getBoolean("aero.demo")&&captureClient!=null)captureClient.framebufferRecorder.start(mc,name);}
+ public static void captureStop(){if(Boolean.getBoolean("aero.demo")&&captureClient!=null)captureClient.framebufferRecorder.stop();}
+ public static void rememberLaunchWindow(MinecraftClient mc,int width,int height){
+  if(!Boolean.getBoolean("aero.launch")||width<320||height<180)return;
+  try{JsonObject size=new JsonObject();size.addProperty("width",width);size.addProperty("height",height);Files.writeString(mc.runDirectory.toPath().resolve("aero-window.json"),size.toString());}
+  catch(Exception ex){System.err.println("AERO_WINDOW "+ex);}
+ }
+ private void restoreLaunchWindow(MinecraftClient mc){
+  int width=mc.options.overrideWidth,height=mc.options.overrideHeight;
+  try{Path saved=mc.runDirectory.toPath().resolve("aero-window.json");if(Files.exists(saved)){JsonObject size=JsonParser.parseString(Files.readString(saved)).getAsJsonObject();int w=size.get("width").getAsInt(),h=size.get("height").getAsInt();if(w>=320&&h>=180){width=w;height=h;}}}
+  catch(Exception ex){System.err.println("AERO_WINDOW "+ex);}
+  if(width<320||height<180){boolean retina=mc.getWindow().getFramebufferWidth()>mc.getWindow().getWidth()*1.5;width=retina?640:1280;height=retina?360:720;}
+  mc.getWindow().setWindowedSize(width,height);rememberLaunchWindow(mc,width,height);
+ }
  @Override public void onInitializeClient(){
+  captureClient=this;
   notes=KeyBindingHelper.registerKeyBinding(new KeyBinding("key.aero.notes",InputUtil.Type.KEYSYM,GLFW.GLFW_KEY_M,"key.categories.aero"));
   recall=KeyBindingHelper.registerKeyBinding(new KeyBinding("key.aero.return",InputUtil.Type.KEYSYM,GLFW.GLFW_KEY_G,"key.categories.aero"));
   ClientPlayNetworking.registerGlobalReceiver(AeroNetworking.Snapshot.ID,(payload,context)->context.client().execute(()->{
    view=JsonParser.parseString(payload.json()).getAsJsonObject();String panel=view.has("panel")?view.get("panel").getAsString():"";
    if(!panel.isEmpty())context.client().setScreen(new AeroScreen(panel));
   }));
-  ClientPlayConnectionEvents.DISCONNECT.register((handler,mc)->{view=new JsonObject();if(ambience!=null)mc.getSoundManager().stop(ambience);ambience=null;room=-1;started=false;director.stop(mc);});
+  ClientPlayConnectionEvents.DISCONNECT.register((handler,mc)->{view=new JsonObject();if(ambience!=null)mc.getSoundManager().stop(ambience);ambience=null;room=-1;started=false;director.stop(mc);captureStop();if(!mc.getWindow().isFullscreen())rememberLaunchWindow(mc,mc.getWindow().getWidth(),mc.getWindow().getHeight());});
   ClientTickEvents.END_CLIENT_TICK.register(this::tick);
   HudRenderCallback.EVENT.register((draw,delta)->{
    var mc=MinecraftClient.getInstance();if(mc.player==null||mc.options.hudHidden)return;
@@ -62,7 +81,7 @@ public final class AeroClient implements ClientModInitializer {
   if(Boolean.getBoolean("aero.launch")&&!creating&&mc.currentScreen instanceof TitleScreen&&mc.getOverlay()==null){
    creating=true;mc.options.pauseOnLostFocus=false;mc.options.tutorialStep=net.minecraft.client.tutorial.TutorialStep.NONE;
    mc.options.getViewDistance().setValue(8);mc.options.getSimulationDistance().setValue(5);mc.options.getFov().setValue(68);mc.options.getFovEffectScale().setValue(0.0);mc.options.getMaxFps().setValue(60);mc.options.getEnableVsync().setValue(false);mc.options.getGuiScale().setValue(2);mc.options.getBobView().setValue(true);
-   mc.options.getSoundVolumeOption(SoundCategory.MUSIC).setValue(0.0);mc.options.getSoundVolumeOption(SoundCategory.MASTER).setValue(.75);mc.getWindow().setWindowedSize(1280,720);
+   mc.options.getSoundVolumeOption(SoundCategory.MUSIC).setValue(0.0);mc.options.getSoundVolumeOption(SoundCategory.MASTER).setValue(.75);restoreLaunchWindow(mc);
    Path marker=mc.runDirectory.toPath().resolve("aero-world.txt");String directory=Files.exists(marker)?Files.readString(marker).strip():"Frutiger Aero";
    if(!Boolean.getBoolean("aero.fresh")&&Files.exists(mc.runDirectory.toPath().resolve("saves").resolve(directory).resolve("level.dat")))mc.createIntegratedServerLoader().start(directory,()->mc.setScreen(new TitleScreen()));
    else{
@@ -86,7 +105,7 @@ public final class AeroClient implements ClientModInitializer {
   }
  }catch(Exception ex){System.err.println("AERO_CLIENT "+ex);}}
  private void report(MinecraftClient mc){try{
-  JsonObject data=view.deepCopy();data.addProperty("fps",mc.getCurrentFps());data.addProperty("tick",ticks);data.addProperty("command",lastCommand);data.addProperty("screen",mc.currentScreen==null?"game":mc.currentScreen.getClass().getSimpleName());data.addProperty("dimension",mc.world.getRegistryKey().getValue().toString());data.addProperty("x",mc.player.getX());data.addProperty("y",mc.player.getY());data.addProperty("z",mc.player.getZ());data.addProperty("yaw",mc.player.getYaw());data.addProperty("pitch",mc.player.getPitch());data.addProperty("directing",director.running());
+  JsonObject data=view.deepCopy();data.addProperty("fps",mc.getCurrentFps());data.addProperty("tick",ticks);data.addProperty("command",lastCommand);data.addProperty("screen",mc.currentScreen==null?"game":mc.currentScreen.getClass().getSimpleName());data.addProperty("dimension",mc.world.getRegistryKey().getValue().toString());data.addProperty("x",mc.player.getX());data.addProperty("y",mc.player.getY());data.addProperty("z",mc.player.getZ());data.addProperty("yaw",mc.player.getYaw());data.addProperty("pitch",mc.player.getPitch());data.addProperty("directing",director.running());data.add("capture",framebufferRecorder.status());
   Files.writeString(mc.runDirectory.toPath().resolve("aero-state.json"),new GsonBuilder().setPrettyPrinting().create().toJson(data));
  }catch(Exception ex){System.err.println("AERO_REPORT "+ex);}}
 }

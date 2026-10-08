@@ -8,7 +8,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
-VERSION = '2.0.0'
+VERSION = '2.0.1'
 
 def sha(path, kind):
     return hashlib.new(kind, path.read_bytes()).hexdigest()
@@ -44,8 +44,8 @@ def main():
     with ZipFile(bundle,'w',ZIP_DEFLATED) as archive:
         archive.write(mod,'mods/'+mod.name)
         archive.write(shader,'shaderpacks/'+shader.name)
-        archive.writestr('INSTALL.md', '# Frutiger Aero 2.0\n\nRead [installation instructions](docs/INSTALL.md) before copying the mod and shader into a Minecraft Java 1.21.1 Fabric instance. The importable .mrpack on the GitHub release also downloads the required dependencies.\n')
-        for name in ('README.md','media/preview.jpg','docs/INSTALL.md','docs/CREDITS.md','docs/licenses/GPL-3.0.txt','docs/licenses/LGPL-3.0.txt','docs/research/experience.md','docs/VALIDATION.md','dependencies/modrinth-lock.json','dependencies/fabric-api-lock.json','media/music/CREDITS.md'):
+        archive.writestr('INSTALL.md', '# Frutiger Aero 2.0.1\n\nRead [installation instructions](docs/INSTALL.md) before copying the mod and shader into a Minecraft Java 1.21.1 Fabric instance. The importable .mrpack on the GitHub release also downloads the required dependencies.\n')
+        for name in ('README.md','media/preview.jpg','docs/INSTALL.md','docs/CREDITS.md','docs/licenses/GPL-3.0.txt','docs/licenses/LGPL-3.0.txt','docs/research/experience.md','docs/VALIDATION.md','docs/recording-validation.json','dependencies/modrinth-lock.json','dependencies/fabric-api-lock.json','media/music/CREDITS.md'):
             archive.write(ROOT/name,name)
         archive.write(ROOT/'LICENSE','LICENSE')
     artifacts=[DIST/mod.name,DIST/f'frutiger-aero-{VERSION}-sources.jar',shader,pack,bundle]

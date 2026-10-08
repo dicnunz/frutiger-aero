@@ -1,15 +1,15 @@
-# Install Frutiger Aero 2.0
+# Install Frutiger Aero 2.0.1
 
 Use Minecraft **Java Edition 1.21.1**. This is a Fabric mod; Bedrock Edition and other Minecraft versions are unsupported. The ordinary launcher requires a Minecraft account that owns Java Edition.
 
 ## Modrinth App or Prism Launcher
 
-Download `Frutiger-Aero-2.0.0.mrpack` from the [GitHub release](https://github.com/dicnunz/frutiger-aero/releases/latest), then import it as a new instance. The manifest downloads the pinned Fabric API, Iris and Sodium from the official Modrinth CDN with SHA-1 and SHA-512 verification. Our mod and complete adapted shader source are included as overrides. Sign in with an account that owns Minecraft Java, launch, open a world and enter `/aero`.
+Download `Frutiger-Aero-2.0.1.mrpack` from the [GitHub release](https://github.com/dicnunz/frutiger-aero/releases/latest), then import it as a new instance. The manifest downloads the pinned Fabric API, Iris and Sodium from the official Modrinth CDN with SHA-1 and SHA-512 verification. Our mod and complete adapted shader source are included as overrides. Sign in with an account that owns Minecraft Java, launch, open a world and enter `/aero`.
 
 ## Minecraft launcher
 
 1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for Minecraft 1.21.1, using Loader **0.16.5** or a compatible newer version. [Fabric's installation guide](https://docs.fabricmc.net/players/installing-fabric/) covers the official launcher; choose 1.21.1 in the installer.
-2. Put `frutiger-aero-2.0.0.jar` and [Fabric API **0.105.0+1.21.1**](https://modrinth.com/mod/fabric-api/version/WTaAx4ah) in that instance's `mods` folder. Use the regular jar, not the `-sources.jar`. Source builds are described below.
+2. Put `frutiger-aero-2.0.1.jar` and [Fabric API **0.105.0+1.21.1**](https://modrinth.com/mod/fabric-api/version/WTaAx4ah) in that instance's `mods` folder. Use the regular jar, not the `-sources.jar`. Source builds are described below.
 3. Launch the Fabric profile, create or open a world, and enter `/aero` in chat. The mod prepares the retreat in its own `aero:retreat` dimension; it does not build the retreat in your overworld. Wait for the preparation indicator to finish.
 4. Right-click the compass console to choose Poolways, Canopy, or Gallery. Restore three flows, then use the exit compass. Optional specimens give cuttings for the garden.
 
@@ -61,6 +61,6 @@ The setup script uses only Python's standard library. It downloads Iris and Sodi
 
 When `dist/Aero-MakeUp-shader.zip` is present, setup copies it into `run/shaderpacks` and enables it only if no Iris configuration exists. Existing shader settings are preserved. A source-only checkout without that optional zip still has a usable renderer; install the release shader separately to obtain the adapted appearance. Shader source and notices are inside the zip.
 
-The first Gradle run needs internet access to resolve Minecraft, mappings, Fabric, and game assets. `build/libs/frutiger-aero-2.0.0.jar` is the installable result. `runClient` uses an isolated `run` directory, creates the development world on first launch, and reopens it on later launches. On macOS, `Play.command` invokes this same development launch after setup. Ordinary installed mod jars do not auto-create a world.
+The first Gradle run needs internet access to resolve Minecraft, mappings, Fabric, and game assets. `build/libs/frutiger-aero-2.0.1.jar` is the installable result. `runClient` uses an isolated `run` directory, creates the development world on first launch, and reopens it on later launches. On macOS, `Play.command` invokes this same development launch after setup. Ordinary installed mod jars do not auto-create a world.
 
 For a separate development save, use `sh tools/gradle.sh runClient -Pfresh`. This creates another world without deleting the earlier garden. The checked-in block textures and room sounds are sufficient to build; rerunning asset generators is not required.

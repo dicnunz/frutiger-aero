@@ -4,9 +4,9 @@
 
 A singleplayer Minecraft Java 1.21.1 Fabric mod with quiet glass-and-water spaces, physical flow puzzles, botanical finds, and a garden you can keep building.
 
-[Download version 2.0](https://github.com/dicnunz/frutiger-aero/releases/latest). Import the `.mrpack` into Modrinth App or Prism Launcher, launch with your Minecraft account, and enter `/aero`. The pack downloads Fabric API, Iris, and Sodium from their official URLs and includes the adapted shader. A jar and manual-install bundle are also available.
+[Download version 2.0.1](https://github.com/dicnunz/frutiger-aero/releases/latest). Import the `.mrpack` into Modrinth App or Prism Launcher, launch with your Minecraft account, and enter `/aero`. The pack downloads Fabric API, Iris, and Sodium from their official URLs and includes the adapted shader. A jar and manual-install bundle are also available.
 
-[Watch the gameplay trailer](https://github.com/dicnunz/frutiger-aero/releases/download/v2.0.0/Frutiger-Aero-improved.mp4).
+[Watch the gameplay trailer](https://github.com/dicnunz/frutiger-aero/releases/download/v2.0.1/Frutiger-Aero-improved.mp4).
 
 Version 2.0 replaces the original fixed tour with repeatable nine-room expeditions. Choose Poolways for open water crossings, Canopy for raised gardens and stairs, or Gallery for lower rooms and larger circuits. Layouts and pipe arrangements change between journeys. Restore three flows to finish; gathering specimens is optional. Bring actual blocks and cuttings home, spend earned material credits at the workshop, and expand the permanent garden.
 

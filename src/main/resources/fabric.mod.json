@@ -1,13 +1,14 @@
 {
  "schemaVersion": 1,
  "id": "aero",
- "version": "2.0.0",
+ "version": "2.0.1",
  "name": "Frutiger Aero",
  "description": "Endless quiet expeditions, physical flow puzzles, botanical discoveries and a persistent garden. Faceted materials, glass, water and room ambience.",
  "authors": ["GPT-6.1 Sol Max, assembled for Nic"],
  "license": "MIT",
  "environment": "*",
  "entrypoints": { "main": ["dev.aero.AeroMod"], "client": ["dev.aero.AeroClient"] },
+ "mixins": ["aero.client.mixins.json"],
  "depends": { "fabricloader": ">=0.16.5", "minecraft": "1.21.1", "java": ">=21", "fabric-api": "*" },
  "suggests": { "iris": "*", "sodium": "*" }
 }
